@@ -1,0 +1,15 @@
+{
+  "name": "gulp_project",
+  "version": "0.1.15",
+  "description": "Gulp project builder",
+  "author": "qube.kz",
+  "dependencies": {
+    "uikit": "^2.27.2",
+    "jquery": "^3.1.1",
+    "jquery-form-styler": "jquery.formstyler#^1.7.6"
+  },
+  "devDependencies": {
+    "uikit": "^2.27.2",
+    "reset-css": "^2.2.0"
+  }
+}
