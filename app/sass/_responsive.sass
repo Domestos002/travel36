@@ -1,18 +1,284 @@
 
-//@media (max-width: $breakpoint-medium-max)
+@media (max-width: 1023px)
+  .page-header__nav-wrapper
+    display: none
+
+  .gamburger
+    display: block
+
+@media (min-width: $breakpoint-large-max)
+  .uk-container
+    padding: 0
+
+  .page-hero__title, .page-hero__description
+    position: relative
+    left: 35px
+
+@media (max-width: $breakpoint-large-max)
+  .page-header, .page-hero, .city-filter-manager, .all-sentence, .contacts, .page-footer
+    .uk-container
+      padding: 0
+
+  .page-hero__title, .page-hero__description
+    position: relative
+    left: 25px
 
 
-//@media (max-width: $breakpoint-medium)
-    @each $fz in (11, 13)
-        .md-fz#{$fz}
-            font-size: $fz + px
 
-    @each $mb in (10)
-        .md-mb#{$mb}
-            margin-bottom: $mb + px
+@media (max-width: $breakpoint-medium-max) //large - 960px
+  .page-hero__title, .page-hero__description, .page-hero__application
+    left: 0
 
-//@media (max-width: $breakpoint-mini-max)
+  a[class*="__phone"]
+    cursor: pointer
+    pointer-events: initial
+    &:hover
+      text-decoration: underline
 
+  .page-hero__application
+    justify-content: center
+
+  .page-hero__application-text
+    margin-right: 10%
+
+  .page-footer__phone
+    font-size: 25px
+  .page-hero__title, .page-hero__description
+    text-align: center
+    br
+      display: none
+
+  .m-p-clear
+    margin: 0
+    padding: 0
+    & > *
+      padding-left: 0
+      padding-right: 0
+
+
+  .alloted-pane
+    padding: 30px 20px 85px 20px
+
+  .how-to-buy__content-item-img
+    height: 90px
+    width: 90px
+
+  .how-to-buy__content-item-description
+    font-size: 14px
+
+  .how-to-buy__content-item-title
+    font-size: 16px
+
+  .page-header__phone
+    font-size: 22px
+
+  @each $fz in (14)
+    .lg-fz#{$fz}
+      font-size: $fz + px
+
+  .how-to-buy__content-item-img
+    img
+      width: 55px
+      height: 55px
+    &::before
+      width: 30px
+      height: 30px
+
+  .how-to-buy__content-item-number
+    left: -15px
+    width: 30px
+    height: 30px
+    font-size: 16px
+
+@media (min-width: $breakpoint-small-max)
+  .how-to-buy__content-item
+    &:not(:last-child)
+      width: 50%
+
+@media (max-width: $breakpoint-small-max) //medium - 768px
+  .page-hero__application-text
+    display: none
+
+  .page-hero__title
+    padding: 15px
+
+  .page-hero__title h1, .page-hero__description
+    font-size: 22px
+
+  .city-filter__navbar-tabs
+    & > li:nth-child(n+2)
+      display: flex
+
+  .section-title
+    font-size: 22px
+
+  .md-flex
+    display: flex
+
+  .md-order-3
+    order: 3
+
+  .md-order-2
+    order: 2
+
+  #consultant-slider
+    +fluid-columns(1, 0, 0)
+    margin-right: 0
+    margin-left: 0
+    padding-left: 0
+    padding-right: 0
+    & > div
+      padding: 0
+
+  .md-flex-center
+    justify-content: center
+
+  .page-header__logo
+    max-width: 200px
+
+  .how-to-buy__content
+    flex-direction: column
+    align-items: center
+
+
+  .page-header__contact-panel
+    padding-top: 25px
+
+  .primary-btn
+    line-height: 40px
+    font-size: 14px
+
+  .all-sentence__sticker
+    font-size: 22px
+    align-items: center
+    text-align: center
+    width: 100%
+    padding: 25px 15px
+    max-width: 100%
+    white-space: normal
+    min-height: initial
+    &::before
+      display: none
+
+  .all-sentence__info
+    margin: 0 auto
+
+  .how-to-buy__content
+    margin: 0 auto
+    width: 340px
+
+  .how-to-buy__content-item
+    width: 100%
+    &:nth-child(2)
+      justify-content: initial
+
+  @each $mb in (0, 30)
+    .md-mb#{$mb}
+      margin-bottom: $mb + px
+
+  @each $fz in (14)
+    .md-fz#{$fz}
+      font-size: $fz + px
+
+
+@media (max-width: 630px)
+  .page-header__phone
+    display: none
+
+  .page-header__contact-panel
+    display: flex
+    justify-content: center
+
+  .page-footer__bottom-panel
+    flex-direction: column
+
+  .page-footer__bottom-panel > *
+    justify-content: space-between
+
+  #consultant-slider
+    .owl-prev
+      transform: translate(20%, -50%)
+
+    .owl-next
+      transform: translate(-35%, -50%)
+
+
+@media (max-width: $breakpoint-mini-max) //small - 480px
+  $content-area-padding: 10px
+  .section-title
+    font-size: 18px
+
+  .uk-container
+    padding: 0
+
+  .uk-offcanvas-bar
+    width: 100%
+  .page-hero__title h1, .page-hero__description
+    font-size: 20px
+
+  .how-to-buy__content-item-text
+    text-align: center
+
+  .how-to-buy__content
+    .uk-grid-margin
+      margin-top: 25px
+
+  body
+    font-size: 14px
+
+  .how-to-buy__content
+    width: initial
+
+  .sm-lh-18
+    line-height: 18px
+
+  @each $mb in (30)
+    .sm-mb#{$mb}
+      margin-bottom: $mb + px
+
+  .consultant-item-wrapper
+    font-size: 14px
+
+  .consultant-item__img
+    max-width: 90px
+    max-height: 90px
+
+  .section-description
+    font-size: 16px
+
+  .how-to-buy__content-item
+    flex-direction: column
+    align-items: center
+
+  .how-to-buy__content-item-img
+    margin-bottom: 15px
+
+  .how-to-buy__content-item-title, .how-to-buy__content-item-description
+    br
+      display: none
+
+  .page-footer__bottom-panel
+    font-size: 14px
+
+  @each $fz in (14)
+    .sm-fz#{$fz}
+      font-size: $fz + px
+
+  .city-filter__navbar-tabs span
+    font-size: 14px
+    max-width: 165px
+
+  .page-header__contain
+    padding: 15px
+
+  .page-header__contact-panel
+    padding: 15px 0 15px 0
+
+  .page-header__navbar
+    padding-top: 15px
+
+  .all-sentence__sticker
+    font-size: 16px
 
 //@media (max-width: $breakpoint-small-max)
 

@@ -4,6 +4,21 @@ body
   font-size: 16px
   line-height: 1.2em
   color: $black
+  background-color: #f8f8f8
+
+
+.page-header__navbar
+  z-index: 200
+  background-color: $brand-2
+  width: 100%
+
+.site-wrapper
+  min-width: 315px
+  max-width: 1170px
+  margin: 0 auto
+  overflow-x: hidden
+  box-shadow: 0 0 30px rgba(0,0,0,.22)
+  background-color: #fff
 
 a
   +trans()
@@ -13,9 +28,12 @@ img
   height: 100%
 
 .uk-container
-  max-width: 1200px
+  max-width: 1170px
+  -webkit-box-sizing: content-box
+  -moz-box-sizing: content-box
+  box-sizing: content-box
 
-@each $mb in (5, 10, 15, 20, 25, 35, 40, 50, 30)
+@each $mb in (5, 10, 15, 20, 25, 35, 40, 50, 55, 30, 65, 70)
   .mb#{$mb}
     margin-bottom: $mb + px
 
@@ -23,16 +41,24 @@ img
   .mr#{$mr}
     margin-right: $mr + px
 
+@each $ml in (30)
+  .ml#{$ml}
+    margin-left: $ml + px
+
+@each $fz in (18, 20)
+  .fz#{$fz}
+    font-size: $fz + px
+
 .full-width
   width: 100%
+
 
 .ttu
   text-transform: uppercase
 
 .page-header__contain
   background-color: $brand-2
-  padding: 25px 15px 25px 15px
-
+  padding: 25px $content-area-padding 25px $content-area-padding
 
 .page-header__nav
   font-family: $font-base-bold
@@ -41,12 +67,12 @@ img
   display: flex
   justify-content: flex-end
   align-items: stretch
-  li
+  & > li
     display: flex
     align-items: stretch
     &:not(:last-child)
-      margin-right: 40px
-    a
+      margin-right: 20px
+    & > a
       display: flex
       align-items: center
       text-transform: uppercase
@@ -74,28 +100,94 @@ img
   display: flex
   justify-content: space-between
   width: 100%
+  align-items: center
 
 .page-header__phone
   font-size: 26px
   font-family: $font-base-bold
 
+.offcanvas-phone
+  font-size: 22px
+  font-family: $font-base-bold
+  color: #fff
+  margin-top: 25px
+
 .page-hero-inner
-  min-height: 510px
-  background-image: url(../images/hero.png)
-  -webkit-background-size: cover
-  background-size: cover
-  background-repeat: no-repeat
+  min-height: 475px
+  position: relative
   width: 100%
   display: flex
   align-items: center
+  border-bottom: 4px solid $brand-1
+  .uk-dotnav
+    z-index: 20
+    position: relative
 
-.page-hero .uk-dotnav li
-  background-color: #fff
-  border-radius: 100%
-  width: 20px
-  height: 20px
-  &:not(:last-child)
-    margin-right: 15px
+
+.page-hero-slide
+  //&::before
+    background-color: rgba(0, 0, 0, 0.4)
+    content: ""
+    position: absolute
+    top: 0
+    right: 0
+    left: 0
+    bottom: 0
+    z-index: 2
+
+.page-hero__application
+  background-color: $brand-2
+  padding: 10px 10px 10px 15px
+  display: flex
+  justify-content: space-between
+  position: relative
+  left: 35px
+
+
+.page-hero__application-text
+  color: #fff
+  font-family: $font-base-bold
+
+.page-hero .uk-dotnav
+  & li
+    background-color: #fff
+    border-radius: 100%
+    width: 20px
+    height: 20px
+    cursor: pointer
+    &:not(:last-child)
+      margin-right: 15px
+    &.uk-active
+      background-color: $brand-2
+
+.map-popup
+  padding: 20px
+  font-size: 16px
+  max-width: 225px
+  width: 100%
+  text-align: center
+  font-family: $font-base-bold
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+  position: absolute
+  z-index: 20
+  left: 50%
+  top: 0
+  transform: translate(-50%, calc(50% + 3px))
+  background-color: $brand-2
+  color: #fff
+  &::after
+    content: ''
+    border-right: 10px solid transparent
+    border-top: 10px solid $brand-2
+    border-bottom: 10px solid transparent
+    border-left: 10px solid transparent
+    z-index: 20
+    position: absolute
+    bottom: -20px
+    left: 50%
+    transform: translateX(-50%)
 
 .page-hero .uk-position-bottom
   width: 100%
@@ -107,7 +199,7 @@ img
 
 .page-hero__title
   background-color: #fff
-  padding: 20px 0 20px 30px
+  padding: 15px 0 15px 30px
   margin-bottom: 20px
   line-height: 28px
   h1
@@ -117,22 +209,42 @@ img
 
 .page-hero__description
   background-color: $orange
-  padding: 20px 0 20px 30px
+  padding: 20px 20px 20px 30px
   font-size: 28px
   line-height: 28px
-  color: $brand-2
+  color: #fff
 
-.page-hero__contain-operator
+.page-hero__contain
+  position: absolute
+  top: 17%
+  width: 100%
+  z-index: 20
+
+#hero-slider
+  min-height: 510px
+
+
+//.page-hero__contain-operator
   display: flex
   justify-content: center
   align-items: center
   color: #fff
   font-family: $font-base-bold
+  .img-wrapper
+    border: 2px solid $brand-1
+    border-radius: 100%
+    width: 100px
+    height: 100px
+    align-items: center
+    justify-content: center
+    display: flex
+    .uk-icon
+      font-size: 60px
 
 .alloted-pane
   background-color: $light-grey
   position: relative
-  margin-bottom: 50px
+  padding: 30px 85px 85px 85px
   &::before
     margin-top: 75px
     content: ''
@@ -161,23 +273,45 @@ img
     border-top: 0
     border-left: 0
 
-.city-filter__navbar-tabs span
-  background-color: $brand-2
-  padding: 15px
-  max-width: 263px
-  width: 100%
-  font-size: 18px
-  font-family: $font-base-bold
+.p-rel
+  position: relative
+
+.city-filter__navbar-tabs
   display: flex
   align-items: center
-  color: #fff
-  img
-    max-width: 30px
-    max-height: 20px
+  flex-direction: row
+  .uk-active span
+    background-color: $brand-1
+    padding: 5px 10px
+    border-radius: 5px
+    text-decoration: none
 
+
+  & > li:nth-child(n+2)
+    display: none
+  & > li:first-child
+    background-color: $brand-2
+    max-width: 185px
+    width: 100%
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+    font-size: 18px
+    font-family: $font-base-bold
+    display: flex
+    align-items: stretch
+    color: #fff
+    & > *
+      padding: 10px
+      width: 100%
+      font-size: 16px
+      color: #fff
+    img
+      max-width: 30px
+      max-height: 20px
 
 .city-filter__navbar-wrapper
-  padding: 15px 15px 75px 15px
+  padding: 15px $content-area-padding 75px $content-area-padding
 
 .city-filter__navbar
   display: flex
@@ -186,15 +320,22 @@ img
   a
     color: $black
     text-decoration: underline
+    padding: 5px 10px
     &:not(:last-child)
       margin-right: 15px
+    &.city-active
+      background-color: $brand-1
+      border-radius: 5px
+      text-decoration: none
+      color: #fff
+
 
 .city-filter
   .uk-grid-margin
     margin-top: 10px
 
 .breadcrumb-inner
-  padding: 20px 10px 20px 10px
+  padding: 20px $content-area-padding 20px $content-area-padding
 
 .section-title-wrapper
   text-align: center
@@ -204,6 +345,7 @@ img
   font-family: $font-base-bold
   color: $brand-2
   margin-bottom: 15px
+  line-height: 1.2em
   &::after
     content: ''
     width: 225px
@@ -217,13 +359,18 @@ img
   font-size: 18px
   font-family: $font-base-bold
 
-.city-filter-manager
-  padding: 15px
+.city-filter-manager-inner
+  padding: $content-area-padding
   color: #fff
   background-color: $brand-2
 
 .city-filter__manager-img
   margin-right: 15px
+  width: 70px
+  height: 70px
+  border-radius: 100%
+  overflow: hidden
+  border: 2px solid $brand-1
 
 .btn
   display: inline-block
@@ -235,8 +382,8 @@ img
   font-size: 16px
   font-family: $font-base-bold
   color: #fff
-  padding: 0 25px 0 25px
-  +trans()
+  text-align: center
+  width: 100%
   white-space: nowrap
   max-width: 220px
   -webkit-box-sizing: border-box
@@ -259,8 +406,10 @@ img
   background-color: $brand-2
   font-size: 28px
   color: #fff
+  white-space: nowrap
   font-family: $font-base-bold
   max-width: 600px
+  width: calc(100% - 88px)
   position: relative
   min-height: 260px
   display: flex
@@ -273,15 +422,19 @@ img
   -moz-box-sizing: border-box
   box-sizing: border-box
 
+
   &::before
     content: ''
     position: absolute
     right: 0
     transform: translateX(+100%)
     border: 130px solid transparent
-    border-left-color: $brand-2
     border-right: 0
     bottom: 0
+    border-right: 107px solid transparent
+    border-top: 130px solid transparent
+    border-bottom: 130px solid transparent
+    border-left: 88px solid $brand-2
 
 .text-col-2
   color: $brand-2
@@ -292,16 +445,20 @@ img
 .consultant-list
   display: flex
   justify-content: space-between
+  padding: 0 $content-area-padding 0 $content-area-padding
 
 .consultant-item__img
   -webkit-border-radius: 100%
   -moz-border-radius: 100%
   border-radius: 100%
-  border: 1px solid $brand-1
+  border: 2px solid $brand-1
   max-width: 120px
   max-height: 120px
   overflow: hidden
   margin-right: 25px
+
+.consultant-item
+  text-align: center
 
 .contacts
   min-height: 460px
@@ -334,13 +491,48 @@ img
   padding: 25px 0 25px 0
   min-height: 200px
 
+a[class*="__phone"]
+  cursor: none
+  pointer-events: none
+  &:hover
+    text-decoration: none
+    color: #fff
+
 .page-footer__phone
   font-size: 28px
   font-family: $font-base-bold
   color: #fff
 
+
+#consultant-slider
+  +fluid-columns(3, 30px, 10px)
+  position: relative
+
+  .owl-prev, .owl-next
+    font-size: 0
+    top: 50%
+    position: absolute
+    font-family: $font-icon
+    &::before
+      font-size: 35px
+      color: $brand-2
+
+  .owl-prev
+    left: 0
+    transform: translate(170%, -50%)
+    &::before
+      content: '\f053'
+
+  .owl-next
+    right: 0
+    transform: translate(-170%, -50%)
+    &::before
+      content: '\f054'
+
+
 .page-footer__mail
   color: #fff
+  text-decoration: underline
 
 .page-footer__socials a
   font-size: 45px
@@ -354,7 +546,231 @@ img
 
 .page-footer__bottom-panel
   background-color: $black
-  color: #fff
-  padding: 15px 20px 15px 20px
+  color: #fff //wdwdw
+  padding: $content-area-padding 20px 15px $content-area-padding
 
-.section
+.how-to-buy__content-item-img
+  width: 135px
+  height: 135px
+  position: relative
+  flex-shrink: 0
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+  max-width: 430px
+  border-radius: 100%
+  border: 2px solid $brand-1
+  line-height: 135px
+  text-align: center
+  display: flex
+  align-items: center
+  justify-content: center
+  &::before
+    content: ''
+    width: 45px
+    height: 45px
+    background-color: $brand-2
+    position: absolute
+    border-radius: 100%
+    left: -15px
+    top: 0
+  &::after
+    content: ''
+    position: absolute
+    left: 0
+    right: 0
+    color: #000
+  img
+    display: inline-block
+    width: 75px
+    height: 75px
+
+.page-hero-slide__img
+  object-fit: cover
+  -webkit-background-size: cover
+  background-size: cover
+
+.page-hero-slide
+  min-height: 510px
+
+.how-to-buy__content-item-number
+  position: absolute
+  color: #fff
+  left: -15px
+  width: 45px
+  height: 45px
+  font-size: 20px
+  display: flex
+  align-items: center
+  justify-content: center
+  font-family: $font-base-bold
+  top: 0
+
+.how-to-buy__content
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+
+  .uk-grid-margin
+    margin-top: 95px
+
+
+.how-to-buy__content-item
+  display: flex
+  text-align: left
+  flex-shrink: 0
+  &:nth-child(2)
+    justify-content: flex-end
+
+.how-to-buy__content-item-text
+  margin-left: 15px
+
+.how-to-buy__content-item-title
+  margin-bottom: 20px
+  font-size: 18px
+  font-family: $font-base-bold
+
+#btn-call
+  font-family: $font-icon
+  position: fixed
+  left: 5%
+  bottom: 5%
+  font-size: 30px
+  width: 55px
+  height: 55px
+  line-height: 55px
+  text-align: center
+  border: 2px solid $brand-1
+  border-radius: 100%
+  background-color: #fff
+  &::before
+    content: '\f095'
+
+.gamburger
+  display: none
+  width: 40px
+  height: 40px
+  border: 2px solid #fff
+  font-size: 21px
+  text-align: center
+  line-height: 40px
+  -webkit-border-radius: 5px
+  -moz-border-radius: 5px
+  border-radius: 100%
+  cursor: pointer
+
+.uk-breadcrumb > li:nth-child(n+2):before
+  content: '>'
+
+.list-mb > *
+  &:not(:last-child)
+    margin-bottom: 15px
+
+.uk-offcanvas-bar
+  color: #fff !important
+  background-color: $brand-2
+  padding: 85px 15px 0 15px
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+  .uk-nav.uk-nav-offcanvas
+    & li
+      color: #fff
+
+      & > a
+        color: #fff
+        text-transform: uppercase
+        font-family: $font-base-bold
+  .uk-nav.uk-nav-offcanvas > li.uk-active > a
+    background-color: $brand-1
+  .uk-nav-parent-icon > .uk-parent > a:after
+    font-size: 27px
+    content: '\f053'
+    margin-right: -4px
+    +trans()
+  .bb
+    padding-bottom: 20px
+    border-bottom: 4px solid $brand-1
+  .uk-nav-parent-icon > .uk-parent.uk-open > a:after
+    transform: rotate(-90deg)
+
+  .uk-parent .uk-nav
+    padding: 15px 0 15px 25px
+    font-size: 15px
+    li
+      &:not(:last-child)
+        margin-bottom: 15px
+
+//.uk-nav-parent-icon > .uk-parent > a:after
+
+.uk-offcanvas-bar__close
+  position: absolute
+  right: 18px
+  top: 3%
+  color: #fff
+  font-size: 25px
+  +trans()
+  width: 35px
+  height: 35px
+  border: 2px solid #fff
+  display: flex
+  justify-content: center
+  align-items: center
+  cursor: pointer
+  border-radius: 100%
+  &:hover
+    color: #fff * 0.8
+
+.uk-offcanvas-bar__description
+  position: absolute
+  color: #fff
+  font-family: $font-base-bold
+  left: 15px
+  top: 4%
+
+.uk-nav-offcanvas > .uk-open > a, html:not(.uk-touch) .uk-nav-offcanvas > li > a:hover, html:not(.uk-touch) .uk-nav-offcanvas > li > a:focus
+  background-color: $brand-2 * 0.8
+
+.page-header__nav
+  .uk-dropdown
+    padding: 0
+    text-transform: none
+    border: 1px solid $brand-2
+    margin-top: 20px
+    &::after
+      content: ''
+      border-right: 10px solid transparent
+      border-top: 10px solid transparent
+      border-bottom: 10px solid #fff
+      border-left: 10px solid transparent
+      z-index: 20
+      position: absolute
+      top: -20px
+      left: 50px
+    .uk-nav
+      margin: 0
+  .uk-parent li
+    padding: 0
+    width: 100%
+
+    border-bottom: 1px solid #c9e7f4
+    & > a
+      padding: 15px 10px 15px 16px
+      color: $black
+      &:hover
+        background-color: #d9eef7
+
+  .uk-parent
+    &::after
+      +trans()
+      content: '\f078'
+      font-family: $font-icon
+      margin-left: 5px
+    &.uk-open
+      &::after
+        transform: rotate(180deg)
+
+.lh-normal
+  line-height: 1.2em
+
+

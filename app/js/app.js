@@ -1,101 +1,58 @@
 ;(function () {
-    var showButton = function () {
-        if ($(window).scrollTop() > 500) {
-            document.getElementById("button-up").style.display = "block";
-        }
-        else {
-            if ($(window).scrollTop() < 500) {
-                document.getElementById("button-up").style.display = "none";
+    $("#story-slider").owlCarousel({
+        items: 3,
+        nav: false,
+        margin: 5,
+        autoplay: true,
+        loop: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            480: {
+                items: 2
+            },
+            750: {
+                items: 3
             }
         }
-    };
+    });
+    function sliderInit() {
+        if ($(window).width() <= 767) {
+
+            $("#consultant-slider").owlCarousel({
+                items: 1,
+                nav: true,
+                loop:true,
+                responsive: {
+                    0: {
+                        items: 1
+                    }
+                }
+            });
+        }
+    }
+
+
     $(document).ready(function () {
-        showButton();
+        sliderInit();
+        $(".uk-parent > a").on('click', function(e) {
+            e.preventDefault();
+        });
+
+        $("#offcanvas-close").on('click', function(e) {
+            $('#offcanvas')[0].click();
+        });
 
         $(window).resize(function () {
-            if ($(window).width() <= 768) {
-                $(".products-item-wrapper").removeClass("list");
-            }
+            sliderInit();
         });
-
-
-        $(".slider-range").each(function () {
-            var slider = $(this);
-            slider.slider();
-            slider.on("slide", function (slideEvt) {
-                slider.closest('.slider-block').find('.slider-label').text(slideEvt.value);
-            });
-            setTimeout(function () {
-                slider.closest('.slider-block').find('.slider-label').text(slider.data('slider').value[0]);
-            }, 500);
-        });
-
-
-        $(".footer-column__title").click(function () {
-            var el = $(this);
-            if (el.hasClass("active")) {
-                el.siblings(".footer-column__info").slideUp(400);
-                el.removeClass("active");
-            }
-            else{
-                el.siblings(".footer-column__info").slideDown(400);
-                el.addClass("active");
-            }
-        });
-
-        $(".page-content__sidebar-item__title").click(function () {
-            var el = $(this);
-            if (el.hasClass("active")) {
-                el.siblings(".page-content__sidebar-item__content").slideUp(400);
-                el.removeClass("active");
-            }
-            else{
-                el.siblings(".page-content__sidebar-item__content").slideDown(400);
-                el.addClass("active");
-            }
-        });
-
-
-        if ($("select, input:radio").length > 0) {
-            $("select, input:radio").styler();
-        }
-
-        $("[data-grid-type]").click(function () {
-            var el = $(this);
-            var container = $("[data-grid-type-container]");
-            if (el.data('grid-type') == "listing") {
-                container.find(".products-item-wrapper").addClass("list");
-                el.addClass("active");
-                //container.addClass("list");
-            }
-            else
-            {
-                container.find(".products-item-wrapper").removeClass("list");
-                el.removeClass("active");
-                //container.removeClass("list");
-            }
-            if (el.hasClass("active")){
-                $("[data-grid-type]").removeClass("active");
-                el.addClass('active');
-            }
-            else{
-                $("[data-grid-type]").removeClass("active");
-                el.addClass('active');
-            }
-        });
-
 
     });
 
     $(function () {
         $('a.js-scrollScreen[href*="#"]:not([href="#"])').click(function () {
             if ($(this).hasClass('sliding-panel-link')) {
-                $('body').removeClass('ovh');
-                $('.sliding-panel').removeClass('active');
-                $('.site-wrapper-content').removeClass('active');
-                $(".site-wrapper").css("width", "auto");
-                $(".site-wrapper").toggleClass("ovh");
-
             }
             if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
                 var target = $(this.hash);

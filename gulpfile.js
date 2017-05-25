@@ -14,6 +14,7 @@ var gulp         = require('gulp'),
     clean        = require('gulp-clean'),
     notify       = require('gulp-notify'),
     browserSync  = require('browser-sync'),
+    purify      = require('gulp-purifycss');
     compass      = require('gulp-compass');
 
 /* PRODUCTION PLUGINS ----------------------------------------------------------
@@ -145,6 +146,13 @@ gulp.task('sass', ["compass"], function() {
     // .pipe(notify('SASS was compiled'));
 });
 
+/* PURIFY --------------------------------------------------------------------- */
+gulp.task('purify', function() {
+    return gulp.src('css/main.css')
+        .pipe(purify(['js/*.js', '/*.html']))
+        .pipe(gulp.dest('../dist/bl/*.css'));
+});
+
 /* BOWER --------------------------------------------------------------------- */
 gulp.task('bower', function () {
     gulp.src(sources.html.src)
@@ -194,7 +202,7 @@ gulp.task('build_dist', function(){
     gulp.src(sources.html.src)
         .pipe(useref())
         .pipe(gulpif('*.js', uglify()))
-        .pipe(gulpif('*.css', minifyCss()))
+        //.pipe(gulpif('*.css', minifyCss()))
         .pipe(useref())
         .pipe(gulp.dest('dist'));
 });

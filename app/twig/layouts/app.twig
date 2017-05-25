@@ -26,7 +26,32 @@
 
     <!-- Scripts -->
     {% include "scripts.twig" %}
-    <a id="button-up" class="js-scrollScreen button-up" href="#logo"></a>
+    <div id="offcanvas" class="uk-offcanvas" aria-hidden="false">
+        <div class="p-rel">
+        <div class="uk-offcanvas-bar uk-offcanvas-bar-show" mode="push">
+            <div class="uk-offcanvas-bar__description">
+                <p>ООО ТК “Дискавери” </p>
+            </div>
+            <i class="uk-offcanvas-bar__close uk-icon uk-icon-close" id="offcanvas-close"></i>
+            <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon bb" data-uk-nav="">
+                <li class="uk-parent uk-active">
+                    <a class="" href="#">туры по россии</a>
+                    <ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
+                                <li><a href="#">крым</a></li>
+                                <li><a href="#">золотое кольцо</a></li>
+                                <li><a href="#">минеральные воды</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="">горящие туры</a></li>
+                <li class=""><a href="">о компании</a></li>
+                <li class=""><a href="">контакты</a></li>
+            </ul>
+            <div class="uk-text-center">
+                <a href="tel:84732783896" class="offcanvas-phone uk-display-inline-block">8 (473) 278-38-96</a>
+            </div>
+        </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

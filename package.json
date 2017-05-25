@@ -17,6 +17,7 @@
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.1.0",
     "gulp-pug": "^3.0.4",
+    "gulp-purifycss": "^0.2.0",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^2.0.0",
     "gulp-twig": "^0.5.0",

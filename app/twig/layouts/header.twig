@@ -1,41 +1,55 @@
+
 <header class="page-header">
     <div class="uk-container uk-container-center">
         <div class="page-header__contain">
-            <div class="uk-grid">
-            <div class="uk-width-medium-3-10 uk-flex uk-flex-middle">
+            <div class="uk-grid" >
+            <div class="uk-width-medium-3-10 uk-flex uk-flex-middle md-flex-center">
                 <span class="page-header__logo">
-                    <img src="images/logo.webp" alt="">
+                    <img src="images/logo.png" alt="">
                 </span>
             </div>
-            <div class="uk-width-medium-7-10 uk-flex uk-flex-middle uk-flex-column ">
+            <div class="uk-width-medium-7-10 uk-flex uk-flex-middle uk-flex-column">
                 <div class="page-header__contact-panel">
-                    <p>Официальный представитель CORAL TRAVEL</p>
+                    <p class="lg-fz14">Официальный представитель CORAL TRAVEL</p>
                     <a href="tel:84732783896" class="page-header__phone">8 (473) 278-38-96</a>
                 </div>
                 <div class="page-header__navbar">
                     <div class="page-header__marker ttu">
-                        <i class="uk-icon uk-icon-map-marker mr10"></i>
+                        <i class="uk-icon uk-icon-map-marker mr10 fz20"></i>
                         воронеж
                     </div>
                     <div class="page-header__nav-wrapper">
-                        <ul class="page-header__nav uk-position-relative" >
-                            <li><a href="">горящие туры</a></li>
-                            <li class="uk-parent" data-uk-dropdown>
-                                <a href="" class="b-page-header__navbar-link fz15 ttu">О КОМПАНИИ </a>
-                                <div class="uk-dropdown uk-dropdown-navbar list-dd-wrapper">
-                                    <ul>
-                                        {% for 1  in 1..5 %}
-                                            <li><a href="#">Зерновые сушилки</a></li>
-                                        {% endfor %}
+                        <ul class="page-header__nav uk-position-relative " >
+                            <li class="uk-parent p-rel" data-uk-dropdown="delay: 200, {mode:'click'}" aria-haspopup="true" aria-expanded="false">
+                                <a href>туры по россии</a>
+                                <div class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom">
+                                    <ul class="uk-nav">
+                                        <li>
+                                            <a href="#" class="">Lips</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="">Scine care</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="">Brows</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="">Cosmetics</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
+                            <li><a href="">горящие туры</a></li>
+                            <li><a href="">о компании</a></li>
                             <li><a href="">КОНТАКТЫ</a></li>
                         </ul>
                     </div>
+                    <div class="gamburger uk-icon uk-icon-bars" data-uk-offcanvas="{target:'#offcanvas'}"></div>
                 </div>
+
             </div>
             </div>
         </div>
     </div>
+
 </header>
